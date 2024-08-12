@@ -1,0 +1,42 @@
+<% layout("/layouts/boilerplate") %>
+<script>
+  const mapToken = "<%= process.env.MAP_TOKEN %>";
+  const listing = <%- JSON.stringify(listing) %>;
+</script>
+
+<div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 mt-3">
+  <% for(listing of allListings) { %>
+  <a href="/listings/<%= listing._id %>" class="listing-link">
+    <div class="card listing-card">
+      <img
+        src="<%= item.image.url %>"
+        class="card-img-top"
+        alt="listing"
+        style="height: 20rem"
+      />
+      <div class="card-img-overlay"></div>
+      <div class="card-body">
+        <p class="card-text">
+          <b><%= item.name %> </b><br />
+          <span class="price-info" data-base-price="<%= item.price %>">
+            &#8377; <%= item.price.toLocaleString("en-IN") %>
+          </span>
+          <span class="price-info" data-base-price="<%= item.price %>">
+            &#8377; <%= item.price.toLocaleString("en-IN") %>
+          </span>
+          <!-- <i class="tax-info"> &nbsp; &nbsp;+18% GST</i> -->
+        </p>
+      </div>
+    </div>
+  </a>
+  <% } %>
+</div>
+
+<main>
+  <div class="container">
+    <div id="products">
+      <!-- Product Cards will be dynamically added here using JavaScript -->
+    </div>
+  </div>
+</main>
+<script src="/js/map.js"></script>

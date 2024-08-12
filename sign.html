@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #00b8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            padding: 20px;
+        }
+        
+        .box {
+            width: 500px; 
+            background-color: #00b8ff;
+            padding: 20px;
+            border-radius: 10px;
+            align-items: center;
+            /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+        }
+        
+        .box h2 {
+            padding: 5px 0px 10px 200px ;
+            
+        }
+        
+        .emailInput,.passwordInput {
+            margin-bottom: 20px;
+        }
+        .box input {
+            height:30px;
+            width:500px;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            padding-left: 15px;
+        }
+
+
+        .button{
+            height: 50px;
+            width: 75px;
+            margin: 5px 0px 10px 200px ;
+        }
+        .container a{
+            display:block;
+            margin: 5px 0px 10px 160px ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h2>User Login </h2>
+            <div class="emailInput">
+                <input type="email" id="email" name="email" placeholder="Enter Your EmailId">
+            </div>
+            <div class="passwordInput">
+                <input type="password" id="password" name="password" placeholder="Password">
+            </div>
+            <button class="button">
+                SIGN IN
+            </button>
+            <a href="C:\Users\HOME\Desktop\Javascript\PROJECT\signup.html">Create New Account </a>
+
+        </div>
+    </div>
+</body>
+<script>
+    const Button= document.querySelector('button');
+    Button.addEventListener('click', () =>{
+        window.location.href="index.html";
+    });
+</script>
+</html>

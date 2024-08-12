@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    /* Add your styles here */
+  </style>
+</head>
+<body>
+
+<div id="products"></div>
+
+<script>
+  // Sample product data (replace with your actual product data)
+  const productsData = [
+    // ... (unchanged)
+  ];
+
+  // Function to dynamically generate product cards
+  function generateProductCards(products) {
+    const productsContainer = document.getElementById('products');
+    products.forEach(product => {
+      const productCard = document.createElement('div');
+      productCard.classList.add('product');
+      productCard.innerHTML = `
+        <img src="${product.name}.webp" alt="${product.name}" />
+        <h2>${product.name}</h2>
+        <p>VKS: ₹${product.price}</p>
+        <p1>Mrp: ₹${product.oldPrice}</p1>
+        <br/>
+        <div class="quantity-controls">
+          <button class="quantity-btn" data-product-id="${product.id}" data-action="subtract">-</button>
+          <span class="quantity">1</span>
+          <button class="quantity-btn" data-product-id="${product.id}" data-action="add">+</button>
+        </div>
+        <button class="addToCartBtn" data-product-id="${product.id}">Add to Cart</button>`;
+      productsContainer.appendChild(productCard);
+    });
+
+    // Add event listeners after generating product cards
+    addEventListenersToButtons();
+  }
+
+  // Function to add event listeners to "Add to Cart" buttons
+  function addEventListenersToButtons() {
+    document.querySelectorAll('.addToCartBtn').forEach((button) => {
+      button.addEventListener('click', () => {
+        const productId = button.dataset.productId;
+        const quantity = parseInt(button.parentNode.querySelector('.quantity').textContent, 10);
+        addToCart(productId, quantity);
+      });
+    });
+
+    // Add event listeners to quantity control buttons
+    addQuantityEventListeners();
+  }
+
+  // Function to add event listeners to quantity control buttons
+  function addQuantityEventListeners() {
+    document.querySelectorAll('.quantity-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        const productId = button.dataset.productId;
+        const action = button.dataset.action;
+        updateQuantity(productId, action);
+      });
+    });
+  }
+
+  // Function to handle adding a product to the cart with a specific quantity
+  function addToCart(productId, quantity) {
+    // Implement your logic to add the product to the cart with the specified quantity
+    console.log(`Product with ID ${productId} added to the cart with quantity ${quantity}.`);
+  }
+
+  // Function to update the quantity when the quantity control buttons are clicked
+  function updateQuantity(productId, action) {
+    const quantityElement = document.querySelector(`.quantity[data-product-id="${productId}"]`);
+    let currentQuantity = parseInt(quantityElement.textContent, 10);
+
+    if (action === 'add') {
+      currentQuantity++;
+    } else if (action === 'subtract' && currentQuantity > 1) {
+      currentQuantity--;
+    }
+
+    quantityElement.textContent = currentQuantity;
+  }
+
+  // Generate product cards and add event listeners on page load
+  window.onload = function () {
+    generateProductCards(productsData);
+  };
+</script>
+
+</body>
+</html>

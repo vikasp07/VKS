@@ -1,0 +1,483 @@
+<style>
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-btn p {
+    margin: 0;
+  }
+
+  .search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Hamburger menu */
+  .checkboxtoggler {
+    width: 2.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    cursor: pointer;
+  }
+
+  .line-1 {
+    background: #df6447;
+    height: 0.3em;
+    border-radius: 10em;
+    transition-duration: 500ms;
+  }
+
+  .line-2 {
+    background: #df6447;
+    height: 0.3em;
+    border-radius: 10em;
+    transition-duration: 500ms;
+  }
+
+  .line-3 {
+    background: #df6447;
+    height: 0.3em;
+    border-radius: 10em;
+    transition-duration: 500ms;
+  }
+
+  #toggleChecker {
+    height: 3em;
+    width: 100%;
+    display: none;
+  }
+
+  #toggleChecker:checked + #togglerLable .checkboxtoggler .line-1 {
+    -webkit-transform: rotate(45deg) translateY(0.7em) translateX(0.7em);
+    -ms-transform: rotate(45deg) translateY(0.7em) translateX(0.7em);
+    transform: rotate(45deg) translateY(0.7em) translateX(0.7em);
+  }
+
+  #toggleChecker:checked + #togglerLable .checkboxtoggler .line-2 {
+    -webkit-transform: rotate(-45deg) translateY(0em) translateX(0.1em);
+    -ms-transform: rotate(-45deg) translateY(0em) translateX(0.1em);
+    transform: rotate(-45deg) translateY(0em) translateX(0.1em);
+  }
+
+  #toggleChecker:checked + #togglerLable .checkboxtoggler .line-3 {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .nav-profile {
+    position: absolute;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    top: 3rem;
+    right: 1.2rem;
+    align-items: center !important;
+    min-height: 8rem;
+    min-width: 10rem;
+    padding: 1.5rem;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.201);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    gap: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .nav-profile a:hover {
+    color: #fe424d;
+  }
+</style>
+
+<!-- 
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-nav">
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <div class="navbar-nav">
+      <form class="d-flex" role="search" action="/listings/search" method="get">
+        <input
+          class="form-control me-2 search-inp"
+          type="search"
+          placeholder="Search"
+          name="q"
+        />
+        <button class="btn search-btn" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <p>Search</p>
+        </button>
+      </form>
+    </div>
+
+    <input id="toggleChecker" type="checkbox" />
+    <label id="togglerLable" for="toggleChecker">
+      <div class="checkboxtoggler">
+        <div class="line-1"></div>
+        <div class="line-2"></div>
+        <div class="line-3"></div>
+      </div>
+    </label>
+
+    <div class="navbar-collapse" id="navbarNavAltMarkup">
+      <div class="nav-profile">
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <% //if (!currUser) { %>
+        <a class="nav-link" href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% //} %>
+        <% //if (currUser) { %>
+        <a class="nav-link" href="/logout"><b>Log out</b></a>
+        <%// } %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const hamMenu = document.querySelector("#toggleChecker");
+  const profileMenu = document.querySelector(".nav-profile");
+
+  hamMenu.addEventListener("click", () => {
+    if (profileMenu.style.visibility !== "visible") {
+      profileMenu.style.visibility = "visible";
+      profileMenu.style.opacity = 1;
+    } else {
+      profileMenu.style.visibility = "hidden";
+      profileMenu.style.opacity = 0;
+    }
+  });
+</script> -->
+
+<header>
+  <div class="navbar">
+    <div id="mySidebar" class="sidebar">
+      <a class="closebtn">
+        <div class="closebtnsign">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        All Categories</a
+      >
+
+      <div class="grocery">
+        <a class="border" href="grocery.html">Grocery </a>
+
+        <div class="sidebar-category">
+          <div class="catoptnbtn">+</div>
+          <option class="sidebar-cat-optn" value="vks_grocery.html">Dal</option>
+          <option class="sidebar-cat-optn" value="vks_grocery.html">
+            Pulses
+          </option>
+          <option class="sidebar-cat-optn" value="vks_grocery.html">
+            Rice
+          </option>
+          <option class="sidebar-cat-optn" value="vks_grocery.html">
+            Dry Fruits
+          </option>
+          <option class="sidebar-cat-optn" value="vks_grocery.html">Oil</option>
+          <option class="sidebar-cat-optn" value="vks_grocery.html">
+            Masala
+          </option>
+        </div>
+      </div>
+
+      <a class="border" href="vks_grocery.html"
+        >VKS Grocery
+        <div class="sidebar-category">
+          +
+          <option class="sidebar-cat-optn" value="vks_grocery.html">Dal</option>
+          <option class="sidebar-cat-optn" value="vks_grocery.html">
+            Pulses
+          </option>
+          <option class="sidebar-cat-optn" value="vks_grocery.html">
+            Rice
+          </option>
+          <option class="sidebar-cat-optn" value="vks_grocery.html">
+            Dry Fruits
+          </option>
+          <option class="sidebar-cat-optn" value="vks_grocery.html">Oil</option>
+          <option class="sidebar-cat-optn" value="vks_grocery.html">
+            Masala
+          </option>
+        </div>
+      </a>
+      <a class="border" href="beverages.html"
+        >Beverages
+        <div class="sidebar-category">
+          +
+          <option class="sidebar-cat-optn" value="beverages.html">Tea</option>
+          <option class="sidebar-cat-optn" value="beverages.html">
+            Coffee
+          </option>
+          <option class="sidebar-cat-optn" value="beverages.html">
+            Soft Drinks
+          </option>
+          <option class="sidebar-cat-optn" value="beverages.html">
+            Energy Drinks
+          </option>
+        </div>
+      </a>
+      <a class="border" href="packaged_food.html"
+        >Packaged Food
+        <div class="sidebar-category">
+          +
+          <option class="sidebar-cat-optn" value="packaged_food.html">
+            Biscuits
+          </option>
+          <option class="sidebar-cat-optn" value="packaged_food.html">
+            Cookies
+          </option>
+          <option class="sidebar-cat-optn" value="packaged_food.html">
+            Snacks
+          </option>
+          <option class="sidebar-cat-optn" value="packaged_food.html">
+            Farsans
+          </option>
+          <option class="sidebar-cat-optn" value="packaged_food.html">
+            Chips
+          </option>
+        </div>
+      </a>
+      <a class="border" href="homeandkitchen.html"
+        >Home & Kitchen
+        <div class="sidebar-category">
+          +
+          <option class="sidebar-cat-optn" value="homeandkitchen.html">
+            Detergents
+          </option>
+          <option class="sidebar-cat-optn" value="homeandkitchen.html">
+            Dishwash
+          </option>
+          <option class="sidebar-cat-optn" value="homeandkitchen.html">
+            All Purpose Cleaner
+          </option>
+          <option class="sidebar-cat-optn" value="homeandkitchen.html">
+            Freshners & Repellents
+          </option>
+        </div>
+      </a>
+      <a class="border" href="personal_care.html"
+        >Personel Care
+        <div class="sidebar-category">
+          +
+          <option class="sidebar-cat-optn" value="personal_care.html">
+            Hair Care
+          </option>
+          <option class="sidebar-cat-optn" value="personal_care.html">
+            Oral CARE
+          </option>
+          <option class="sidebar-cat-optn" value="personal_care.html">
+            Bath & Hand Wash
+          </option>
+          <option class="sidebar-cat-optn" value="personal_care.html">
+            Feminine Hygine
+          </option>
+          <option class="sidebar-cat-optn" value="personal_care.html">
+            Deo And Frangrances
+          </option>
+          <option class="sidebar-cat-optn" value="personal_care.html">
+            Men's Grooming
+          </option>
+        </div>
+      </a>
+      <a class="border" href="beautyandcosmetics.html"
+        >Beauty & Cosmetics
+        <div class="sidebar-category">
+          +
+          <option class="sidebar-cat-optn" value="beautyandcosmetics.html">
+            Skin
+          </option>
+          <option class="sidebar-cat-optn" value="beautyandcosmetics.html">
+            Face
+          </option>
+          <option class="sidebar-cat-optn" value="beautyandcosmetics.html">
+            Eye
+          </option>
+          <option class="sidebar-cat-optn" value="beautyandcosmetics.html">
+            Beauty Accessories
+          </option>
+        </div>
+      </a>
+      <a class="border" href="school_supplies.html"
+        >School Supplies
+        <div class="sidebar-category">
+          +
+          <option class="sidebar-cat-optn" value="school_supplies.html">
+            Notebooks
+          </option>
+          <option class="sidebar-cat-optn" value="school_supplies.html">
+            Diary
+          </option>
+          <option class="sidebar-cat-optn" value="school_supplies.html">
+            Glue
+          </option>
+          <option class="sidebar-cat-optn" value="school_supplies.html">
+            Adhesives
+          </option>
+        </div>
+      </a>
+    </div>
+
+    <div id="main">
+      <button type="button" class="openbtn border">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      ALL
+    </div>
+
+    <div class="navlogo border">
+      <div class="logo"></div>
+    </div>
+
+    <div class="nav-address border">
+      <p class="add-first">Deliver to</p>
+      <div class="add-icon">
+        <i class="fa-solid fa-location-dot"></i>
+        <p class="add-sec">India</p>
+      </div>
+    </div>
+
+    <div class="nav-search">
+      <select id="search-select">
+        <option value="index.html">ALL</option>
+        <option value="grocery.html">GROCERY</option>
+        <option value="vks_grocery.html">VKS GROCERY</option>
+        <option value="beverages.html">BEVERAGES</option>
+        <option value="packaged_food.html">PACKAGED FOOD</option>
+        <option value="homeandkitchen.html">HOME & KITCHEN</option>
+        <option value="personal_care.html">PERSONAL CARE</option>
+        <option value="beautyandcosmetics.html">BEAUTY & COSMETICS</option>
+        <option value="school_supplies.html">SCHOOL SUPPLIES</option>
+      </select>
+      <input placeholder="APKO KYA CHAHIYE" class="search-input" />
+      <div class="search-icon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+    <div class="nav-signin">
+      <a href="C:\Users\HOME\Desktop\Javascript\PROJECT\sign.html">Sign in</a>
+      <p class="nav-second">Account & LISTS</p>
+    </div>
+    <div class="nav-return">
+      <p><span>Returns</span></p>
+      <p class="nav-second">& Orders</p>
+    </div>
+    <div class="nav-cart border">
+      <i class="fa-solid fa-cart-shopping"></i>
+      Cart
+    </div>
+  </div>
+
+  <!-- <button class="dropbtn">Dropdown</button>
+<div class="dropdown-content">
+<a href="#">Link 1</a>
+<a href="#">Link 2</a>
+<a href="#">Link 3</a>
+</div>
+</div> -->
+
+  <div class="panel">
+    <div class="panel-ops">
+      <a href="grocery.html" class="panel-optn"
+        >GROCERY
+        <div class="panel-options">
+          <option value="grocery.html">Dal</option>
+          <option value="grocery.html">Pulses</option>
+          <option value="grocery.html">Rice</option>
+          <option value="grocery.html">Dry Fruits</option>
+          <option value="grocery.html">Oil</option>
+          <option value="grocery.html">Masala</option>
+        </div>
+      </a>
+      <a href="vks_grocery.html" class="panel-optn"
+        >VKS GROCERY
+        <div class="panel-options">
+          <option value="vks_grocery.html">Dal</option>
+          <option value="vks_grocery.html">Pulses</option>
+          <option value="vks_grocery.html">Rice</option>
+          <option value="vks_grocery.html">Dry Fruits</option>
+          <option value="vks_grocery.html">Oil</option>
+          <option value="vks_grocery.html">Masala</option>
+        </div>
+      </a>
+      <a href="beverages.html" class="panel-optn"
+        >BEVERAGES
+        <div class="panel-options">
+          <option value="beverages.html">Tea</option>
+          <option value="beverages.html">Coffee</option>
+          <option value="beverages.html">Soft Drinks</option>
+          <option value="beverages.html">Energy Drinks</option>
+        </div>
+      </a>
+      <a href="packaged_food.html" class="panel-optn"
+        >PACKAGED FOOD
+        <div class="panel-options">
+          <option value="packaged_food.html">Biscuits</option>
+          <option value="packaged_food.html">Cookies</option>
+          <option value="packaged_food.html">Snacks</option>
+          <option value="packaged_food.html">Farsans</option>
+          <option value="packaged_food.html">Chips</option>
+        </div>
+      </a>
+      <a href="homeandkitchen.html" class="panel-optn"
+        >HOME & KITCHEN
+        <div class="panel-options">
+          <option value="homeandkitchen.html">Detergents</option>
+          <option value="homeandkitchen.html">Dishwash</option>
+          <option value="homeandkitchen.html">All Purpose Cleaner</option>
+          <option value="homeandkitchen.html">Freshners & Repellents</option>
+        </div>
+      </a>
+      <a href="personal_care.html" class="panel-optn"
+        >PERSONAL CARE
+        <div class="panel-options">
+          <option value="personal_care.html">Hair Care</option>
+          <option value="personal_care.html">Oral CARE</option>
+          <option value="personal_care.html">Bath & Hand Wash</option>
+          <option value="personal_care.html">Feminine Hygine</option>
+          <option value="personal_care.html">Deo And Frangrances</option>
+          <option value="personal_care.html">Men's Grooming</option>
+        </div>
+      </a>
+      <a href="beautyandcosmetics.html" class="panel-optn"
+        >BEAUTY & COSMETICS
+        <div class="panel-options">
+          <option value="beautyandcosmetics.html">Skin</option>
+          <option value="beautyandcosmetics.html">Face</option>
+          <option value="beautyandcosmetics.html">Eye</option>
+          <option value="beautyandcosmetics.html">Beauty Accessories</option>
+        </div>
+      </a>
+      <a href="school_supplies.html" class="panel-optn">
+        SCHOOL SUPPLIES
+        <div class="panel-options">
+          <option value="school_supplies.html">Notebooks</option>
+          <option value="school_supplies.html">Diary</option>
+          <option value="school_supplies.html">Glue</option>
+          <option value="school_supplies.html">Adhesives</option>
+        </div>
+      </a>
+    </div>
+  </div>
+</header>
